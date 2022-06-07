@@ -1,2 +1,2 @@
-data_acq_autogen/build/
-proc_com_autogen/build/
+data-acq_module/data_acq_autogen/build
+proc_com_module/proc_com_autogen/build
