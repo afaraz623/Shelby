@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "data_acq_module"
+		},
+		{
+			"path": "proc_com_module"
+		}
+	]
+}

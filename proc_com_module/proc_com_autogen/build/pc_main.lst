@@ -1,0 +1,127 @@
+ARM GAS  /tmp/cc8eFKkj.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"pc_main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	1
+  21              		.global	main
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	main:
+  27              	.LFB134:
+  28              		.file 1 "../proc_com_self/src/pc_main.c"
+   1:../proc_com_self/src/pc_main.c **** #include "main.h"
+   2:../proc_com_self/src/pc_main.c **** #include "gpio.h"
+   3:../proc_com_self/src/pc_main.c **** #include "cmsis_os.h"
+   4:../proc_com_self/src/pc_main.c **** #include "dma.h"
+   5:../proc_com_self/src/pc_main.c **** #include "usart.h"
+   6:../proc_com_self/src/pc_main.c **** 
+   7:../proc_com_self/src/pc_main.c **** /***************************** Prototypes ****************************/
+   8:../proc_com_self/src/pc_main.c **** extern void SystemClock_Config(void);
+   9:../proc_com_self/src/pc_main.c **** extern void MX_FREERTOS_Init(void);
+  10:../proc_com_self/src/pc_main.c **** 
+  11:../proc_com_self/src/pc_main.c **** int main(void)
+  12:../proc_com_self/src/pc_main.c **** {
+  29              		.loc 1 12 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  13:../proc_com_self/src/pc_main.c ****     // Reset of all peripherals, Initializes the Flash interface and the Systick
+  14:../proc_com_self/src/pc_main.c ****     HAL_Init();
+  38              		.loc 1 14 5 view .LVU1
+  39 0002 FFF7FEFF 		bl	HAL_Init
+  40              	.LVL0:
+  15:../proc_com_self/src/pc_main.c **** 
+  16:../proc_com_self/src/pc_main.c ****     // Configure the system clock
+  17:../proc_com_self/src/pc_main.c ****     SystemClock_Config();
+  41              		.loc 1 17 5 view .LVU2
+ARM GAS  /tmp/cc8eFKkj.s 			page 2
+
+
+  42 0006 FFF7FEFF 		bl	SystemClock_Config
+  43              	.LVL1:
+  18:../proc_com_self/src/pc_main.c **** 
+  19:../proc_com_self/src/pc_main.c ****     // Initialize all configured peripherals
+  20:../proc_com_self/src/pc_main.c ****     MX_GPIO_Init();
+  44              		.loc 1 20 5 view .LVU3
+  45 000a FFF7FEFF 		bl	MX_GPIO_Init
+  46              	.LVL2:
+  21:../proc_com_self/src/pc_main.c ****     MX_DMA_Init();
+  47              		.loc 1 21 5 view .LVU4
+  48 000e FFF7FEFF 		bl	MX_DMA_Init
+  49              	.LVL3:
+  22:../proc_com_self/src/pc_main.c ****     MX_USART1_UART_Init();
+  50              		.loc 1 22 5 view .LVU5
+  51 0012 FFF7FEFF 		bl	MX_USART1_UART_Init
+  52              	.LVL4:
+  23:../proc_com_self/src/pc_main.c **** 
+  24:../proc_com_self/src/pc_main.c ****     // Start peripherals
+  25:../proc_com_self/src/pc_main.c **** 
+  26:../proc_com_self/src/pc_main.c ****     // Call init function for freertos objects (in freertos.c)
+  27:../proc_com_self/src/pc_main.c ****     osKernelInitialize();
+  53              		.loc 1 27 5 view .LVU6
+  54 0016 FFF7FEFF 		bl	osKernelInitialize
+  55              	.LVL5:
+  28:../proc_com_self/src/pc_main.c ****     MX_FREERTOS_Init();
+  56              		.loc 1 28 5 view .LVU7
+  57 001a FFF7FEFF 		bl	MX_FREERTOS_Init
+  58              	.LVL6:
+  29:../proc_com_self/src/pc_main.c **** 
+  30:../proc_com_self/src/pc_main.c ****     // Start scheduler
+  31:../proc_com_self/src/pc_main.c ****     osKernelStart();
+  59              		.loc 1 31 5 view .LVU8
+  60 001e FFF7FEFF 		bl	osKernelStart
+  61              	.LVL7:
+  32:../proc_com_self/src/pc_main.c **** }...
+  62              		.loc 1 32 1 is_stmt 0 view .LVU9
+  63 0022 0020     		movs	r0, #0
+  64 0024 08BD     		pop	{r3, pc}
+  65              		.cfi_endproc
+  66              	.LFE134:
+  68              		.text
+  69              	.Letext0:
+  70              		.file 2 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+  71              		.file 3 "Core/Inc/gpio.h"
+  72              		.file 4 "Core/Inc/dma.h"
+  73              		.file 5 "Core/Inc/usart.h"
+  74              		.file 6 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ARM GAS  /tmp/cc8eFKkj.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 pc_main.c
+     /tmp/cc8eFKkj.s:20     .text.main:0000000000000000 $t
+     /tmp/cc8eFKkj.s:26     .text.main:0000000000000000 main
+
+UNDEFINED SYMBOLS
+HAL_Init
+SystemClock_Config
+MX_GPIO_Init
+MX_DMA_Init
+MX_USART1_UART_Init
+osKernelInitialize
+MX_FREERTOS_Init
+osKernelStart

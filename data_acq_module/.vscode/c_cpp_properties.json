@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "STM32 F3",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USE_HAL_DRIVER",
+                "STM32F303xC"
+            ],
+            "intelliSenseMode": "linux-gcc-arm",
+            "compilerPath": "/usr/local/bin/arm-none-eabi-gcc",
+            "compilerArgs": [
+                "-mcpu=cortex-m4",
+                "-mfpu=fpv4-sp-d16",
+                "-mfloat-abi=hard",
+                "-mthumb"
+            ],
+            "cStandard": "c11"
+        }
+    ],
+    "version": 4
+}

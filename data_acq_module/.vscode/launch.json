@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "projectName": "proc_com_autogen",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug Jlink",
+            "cwd": "${workspaceRoot}",
+            "executable": "./data_acq_autogen/build/data_acq_autogen.elf",
+            "servertype": "jlink",
+            "device": "STM32F303VC",
+            "interface": "swd",
+            "serialNumber": "774398515", // Debugger serial number
+            "runToEntryPoint": "main",
+            "preLaunchTask": "Build",
+            "svdFile": "./data_acq_autogen/STM32F303.svd", // Include svd to watch device peripherals
+        }
+    ]
+}

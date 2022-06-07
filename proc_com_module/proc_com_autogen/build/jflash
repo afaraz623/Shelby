@@ -1,0 +1,8 @@
+USB 779380005
+device STM32F429ZI
+si 1
+speed 4000
+loadbin build/proc_com_autogen.bin 0x8000000
+r
+g
+qc

@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "projectName": "proc_com_autogen",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug Jlink",
+            "cwd": "${workspaceRoot}",
+            "executable": "./proc_com_autogen/build/proc_com_autogen.elf",
+            "servertype": "jlink",
+            "device": "STM32F429ZI",
+            "interface": "swd",
+            "serialNumber": "779380005", // Debugger serial number
+            "runToEntryPoint": "main",
+            "preLaunchTask": "Build",
+            "svdFile": "./proc_com_autogen/STM32F429.svd", // Include svd to watch device peripherals
+        }
+    ]
+}
