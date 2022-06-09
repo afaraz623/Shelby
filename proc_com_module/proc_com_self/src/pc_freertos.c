@@ -14,11 +14,14 @@
 #include <stdio.h>
 #include <main.h>
 #include <stdint.h>
+#include <string.h>
 
 /******************************* Aliases **************************************/
-#define BUF_SIZE 128
+#define BUF_SIZE 64
 
 /****************************** Global Variables ******************************/
+uint8_t rxbuff[BUF_SIZE] = {0};
+
 
 /********************************* Prototypes ********************************/
 extern bool cubemx_transport_open(struct uxrCustomTransport *transport);
@@ -65,13 +68,11 @@ void start_uros_task(void *argument)
     msg.data.data = malloc(BUF_SIZE);
     msg.data.capacity = BUF_SIZE;
 
-    uint32_t counter = 0;
-
     while (1)
     {
-        snprintf(msg.data.data, msg.data.capacity, "Hello World: %ld", counter++);
+        HAL_UART_Receive_DMA(&huart2, rxbuff, BUF_SIZE);
+        memcpy(msg.data.data, rxbuff, BUF_SIZE);
         msg.data.size = strlen(msg.data.data);
         rcl_publish(&publisher, &msg, NULL);
-        osDelay(1000);
     }
 }
